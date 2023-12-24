@@ -1,10 +1,12 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import data from '../flights.json';
 
 import _ from 'lodash';
+import Card from '../Card/Card';
 
 const Main = () => {
-  const flightResults = _.cloneDeep(data.result);
+  const deepCopy = _.cloneDeep(data.result);
+  const [flightResults, setFlightResults] = useState();
 
   function updateStopsInFlightResults(oneConnection, flights) {
     for (const flight of flights) {
@@ -20,31 +22,27 @@ const Main = () => {
         }
       }
     }
-
     return flights;
   }
 
   useEffect(() => {
-    updateStopsInFlightResults(
-      flightResults.bestPrices.ONE_CONNECTION,
-      flightResults.flights,
+    const updated = updateStopsInFlightResults(
+      deepCopy.bestPrices.ONE_CONNECTION,
+      deepCopy.flights,
     );
-
-    // flightResults.flights.forEach((flight) => {
-    //   flight.flight.legs.forEach((leg) => {
-    //     leg.segments.forEach((segment) => {
-    //       console.log(
-    //         `Carrier: ${flight.flight.carrier.uid}, Amount: ${flight.flight.price.passengerPrices[0].total.amount}, Stops: ${segment.stops}`,
-    //       );
-    //     });
-    //   });
-    // });
-  }, [flightResults.bestPrices.ONE_CONNECTION, flightResults.flights]);
+    setFlightResults(updated);
+  }, []);
 
   return (
-    <div style={{ display: 'flex' }}>
-      <div style={{ width: '50%' }}>Filters</div>
-      <div style={{ width: '50%' }}>Results</div>
+    <div className="flex max-w-[1100px] m-auto mt-7">
+      <div className="w-2/5">Filters</div>
+      <div className="w-3/5">
+        <ul>
+          {flightResults?.map((item, index) => (
+            <Card card={item} key={index} />
+          ))}
+        </ul>
+      </div>
     </div>
   );
 };

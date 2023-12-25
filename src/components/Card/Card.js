@@ -9,8 +9,8 @@ const Card = ({ card }) => {
   }
 
   return (
-    <li className="mb-8 w-full">
-      <div className="flex justify-between h-min bg-sky-600 text-white p-2 items-center">
+    <li className="mb-8 w-full text-sm">
+      <div className="flex justify-between h-min bg-sky-600 text-white p-2 items-center text-base">
         <p>{card.flight.carrier.caption}</p>
         <div className="flex flex-col justify-end w-[60%] items-end">
           <p>{card.flight.price.total.amount} ₽</p>
@@ -22,11 +22,8 @@ const Card = ({ card }) => {
         {card.flight.legs.map((leg, index) => (
           <div key={index}>
             {leg.segments.map((segment, index) => (
-              <>
-                <div
-                  className="flex text-base w-full font-semibold border-b border-b-stone-200 h-8 my-3"
-                  key={index}
-                >
+              <div key={index}>
+                <div className="flex w-max font-semibold border-b border-b-stone-200 h-8 my-3">
                   <p>
                     {segment.departureCity?.caption},{' '}
                     {segment.departureAirport?.caption}
@@ -90,7 +87,7 @@ const Card = ({ card }) => {
                 <p className="block border-b-2 border-b-sky-700 pb-2">
                   Рейс выполняет: {segment?.airline.caption}
                 </p>
-              </>
+              </div>
             ))}
           </div>
         ))}

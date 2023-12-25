@@ -1,6 +1,6 @@
 # Тестовое задание в Gridnine Systems для вакансии JavaScript Developer
 
-Ссылка стенд: 
+Ссылка стенд: https://oxitenko.github.io/gidnine-systems-test/
 #
 
 _Задание_: сверстать и отрисовать страницу результатов поиска перелётов.

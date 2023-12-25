@@ -22,11 +22,8 @@ const Card = ({ card }) => {
         {card.flight.legs.map((leg, index) => (
           <div key={index}>
             {leg.segments.map((segment, index) => (
-              <>
-                <div
-                  className="flex w-max font-semibold border-b border-b-stone-200 h-8 my-3"
-                  key={index}
-                >
+              <div key={index}>
+                <div className="flex w-max font-semibold border-b border-b-stone-200 h-8 my-3">
                   <p>
                     {segment.departureCity?.caption},{' '}
                     {segment.departureAirport?.caption}
@@ -90,7 +87,7 @@ const Card = ({ card }) => {
                 <p className="block border-b-2 border-b-sky-700 pb-2">
                   Рейс выполняет: {segment?.airline.caption}
                 </p>
-              </>
+              </div>
             ))}
           </div>
         ))}

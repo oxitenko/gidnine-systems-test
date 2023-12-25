@@ -65,7 +65,7 @@ const Filters = ({
           <input
             type="text"
             name="minPrice"
-            value={price.minPrice}
+            value={price.minPrice || ''}
             onChange={handleChangePrice}
             className="border border-gray-500"
           />
@@ -75,7 +75,7 @@ const Filters = ({
           <input
             type="text"
             name="maxPrice"
-            value={price.maxPrice}
+            value={price.maxPrice || ''}
             onChange={handleChangePrice}
             className="border border-gray-500"
           />
@@ -84,8 +84,8 @@ const Filters = ({
       <div className="flex flex-col mb-7">
         <p className="font-semibold mb-2">Авиакомпании</p>
         {[...companysList.entries()]?.map(([name, price]) => (
-          <div className="flex">
-            <label className="w-[50%] truncate ..." key={name}>
+          <div className="flex" key={name}>
+            <label className="w-[50%] truncate ...">
               <input type="checkbox" value={name} onChange={handleChangeName} />{' '}
               - {name}
             </label>

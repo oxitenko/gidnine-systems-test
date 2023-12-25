@@ -84,7 +84,7 @@ const Filters = ({
       <div className="flex flex-col mb-7">
         <p className="font-semibold mb-2">Авиакомпании</p>
         {[...companysList.entries()]?.map(([name, price]) => (
-          <div className="flex" key={name}>
+          <div className="flex">
             <label className="w-[50%] truncate ..." key={name}>
               <input type="checkbox" value={name} onChange={handleChangeName} />{' '}
               - {name}

@@ -113,7 +113,6 @@ const Main = () => {
         );
         break;
       default:
-        filteredFlights = flights;
     }
 
     //----------------------------Фильтрация по мин и макс цене-----------------------
@@ -130,8 +129,6 @@ const Main = () => {
       filteredFlights = filteredFlights.filter((flight) =>
         name.includes(flight.flight.carrier.caption),
       );
-    } else if (name.length === 0) {
-      filteredFlights = flights;
     }
 
     //----------------------------Возвращает отфильтрованный список----------------------

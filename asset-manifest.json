@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/gidnine-systems-test/static/css/main.36c22e07.css",
+    "main.js": "/gidnine-systems-test/static/js/main.deda1dd3.js",
+    "index.html": "/gidnine-systems-test/index.html",
+    "main.36c22e07.css.map": "/gidnine-systems-test/static/css/main.36c22e07.css.map",
+    "main.deda1dd3.js.map": "/gidnine-systems-test/static/js/main.deda1dd3.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.36c22e07.css",
+    "static/js/main.deda1dd3.js"
+  ]
+}
